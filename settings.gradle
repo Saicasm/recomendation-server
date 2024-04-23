@@ -1,0 +1,5 @@
+rootProject.name = 'recommendation'
+include 'recom-app'
+include 'recom-details'
+include 'recom-core'
+
