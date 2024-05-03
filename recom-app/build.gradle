@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.5'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
