@@ -1,0 +1,24 @@
+spring:
+
+  flyway:
+    enabled: true
+  jooq:
+    sql-dialect: Postgres
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: my-group-id
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/shoestore?loggerLevel=OFF
+#    username: postgres
+#    password: postgres
+
+#cloud:
+#  aws:
+#    region:
+#      main: us-east-2
+#    credentials:
+#      access-key: USERORGEXAMPLE
+#      secret-key: 2QvM4/Tdmf38SkcD/qalvXO4EXAMPLEKEY
+#    end-point:
+#      uri: "http://www.foo.com"

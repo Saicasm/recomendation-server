@@ -1,4 +1,7 @@
 package com.recommendation.core.search;
 
-public class Search {
+public class Search  {
+    String songName;
+    String songId;
+    String artist;
 }
