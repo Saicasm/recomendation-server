@@ -1,6 +1,6 @@
 package com.recommendation.app.http;
 
-import com.recommendation.app.config.MessageProducer;
+import com.recommendation.kafka.MessageProducer;
 import com.recommendation.app.http.api.RecomRequest;
 import com.recommendation.app.http.api.SongResults;
 import com.recommendation.core.search.Search;
@@ -14,29 +14,31 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/rec")
 public class RecommendationController {
-    @Autowired
-    private MessageProducer messageProducer;
+    private final MessageProducer messageProducer;
     private final SearchService searchService;
+
     @Autowired
-    public RecommendationController(SearchService searchService) {
+    public RecommendationController(SearchService searchService, MessageProducer messageProducer) {
         this.searchService = searchService;
+        this.messageProducer = messageProducer;
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Search>> getSongsForKeyword(@RequestParam("q")  String query){
+    public ResponseEntity<List<Search>> getSongsForKeyword(@RequestParam("q") String query) {
         List<Search> songResults = searchService.search(query);
         return ResponseEntity.ok(songResults);
     }
 
     @PostMapping("/playlist")
-    public ResponseEntity<SongResults> getRecommendationForPlaylist(){
-        SongResults songResults =  null;
+    public ResponseEntity<SongResults> getRecommendationForPlaylist() {
+        SongResults songResults = null;
         return ResponseEntity.ok(songResults);
     }
+
     @PostMapping("/recommendation")
-    public ResponseEntity<SongResults> getRecommendationForSongs(@RequestBody RecomRequest recommendationRequest ){
+    public ResponseEntity<SongResults> getRecommendationForSongs(@RequestBody RecomRequest recommendationRequest) {
         messageProducer.sendMessage("RecommRequest", "Hello");
-        SongResults songResults =  null;
+        SongResults songResults = null;
         return ResponseEntity.ok(songResults);
     }
 }

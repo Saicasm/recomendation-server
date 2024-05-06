@@ -1,4 +1,4 @@
-package com.recommendation.app.config;
+package com.recommendation.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
