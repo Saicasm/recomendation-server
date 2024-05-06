@@ -1,20 +1,23 @@
 package com.recommendation.app.http;
 
+import com.recommendation.app.config.MessageProducer;
+import com.recommendation.app.http.api.RecomRequest;
 import com.recommendation.app.http.api.SongResults;
 import com.recommendation.core.search.Search;
 import com.recommendation.core.search.SearchService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@Validated
 @RequestMapping("api/v1/rec")
 public class RecommendationController {
+    @Autowired
+    private MessageProducer messageProducer;
     private final SearchService searchService;
-
+    @Autowired
     public RecommendationController(SearchService searchService) {
         this.searchService = searchService;
     }
@@ -31,7 +34,8 @@ public class RecommendationController {
         return ResponseEntity.ok(songResults);
     }
     @PostMapping("/recommendation")
-    public ResponseEntity<SongResults> getRecommendationForSongs(){
+    public ResponseEntity<SongResults> getRecommendationForSongs(@RequestBody RecomRequest recommendationRequest ){
+        messageProducer.sendMessage("RecommRequest", "Hello");
         SongResults songResults =  null;
         return ResponseEntity.ok(songResults);
     }
