@@ -8,6 +8,11 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: my-group-id
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: jts
 #  datasource:
 #    url: jdbc:postgresql://localhost:5432/shoestore?loggerLevel=OFF
 #    username: postgres

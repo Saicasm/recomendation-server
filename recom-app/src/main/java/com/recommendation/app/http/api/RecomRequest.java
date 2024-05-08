@@ -1,10 +1,17 @@
 package com.recommendation.app.http.api;
 
 
-public class RecomRequest {
-    private String name;
+import java.util.List;
 
-    private String id;
+public class RecomRequest {
+    private String artist_name;
+
+    private String _id;
+    private String track_name;
+
+    private String trackId;
+
 
     // Getters and setters
 }
+

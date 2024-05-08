@@ -16,11 +16,11 @@ public class SearchService {
         this.searchRepository = searchRepository;
     }
 
-    public List<Search> search(String query) {
+    public List<MusicTrack> search(String query) {
         if (query.isEmpty()) {
-            return searchRepository.list();
+            return null;
         } else {
-            List<Search> nameResults = searchRepository.findByName(query);
+            List<MusicTrack> nameResults = searchRepository.findByName(query);
 
             return nameResults;
         }
