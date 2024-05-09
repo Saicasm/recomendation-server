@@ -1,4 +1,4 @@
-package com.recommendation.core.search;
+package songsearch.core.search;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,7 @@ public class SearchService {
         if (query.isEmpty()) {
             return null;
         } else {
-            List<MusicTrack> nameResults = searchRepository.findByName(query);
-
-            return nameResults;
+            return searchRepository.findByName(query);
         }
     }
 }

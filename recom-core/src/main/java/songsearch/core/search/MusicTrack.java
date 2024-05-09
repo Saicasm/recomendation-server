@@ -1,4 +1,4 @@
-package com.recommendation.core.search;
+package songsearch.core.search;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -6,14 +6,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Test")
 public class MusicTrack {
 
-
     @Id
     private String _id;
 
     private String artist_name;
 
     private String track_name;
-
+    private String track_id;
     public String getTrackId() {
         return track_id;
     }
@@ -22,7 +21,7 @@ public class MusicTrack {
         this.track_id = trackId;
     }
 
-    private String track_id;
+
     // Getters and Setters
     public String get_id() {
         return _id;
