@@ -1,5 +1,5 @@
-rootProject.name = 'recommendation'
-include 'recom-app'
-include 'recom-details'
-include 'recom-core'
+rootProject.name = 'songs-search'
+include 'search-app'
+include 'search-details'
+include 'search-core'
 

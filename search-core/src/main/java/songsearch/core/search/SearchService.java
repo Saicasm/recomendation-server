@@ -23,4 +23,12 @@ public class SearchService {
             return searchRepository.findByName(query);
         }
     }
+
+    public List<MusicTrack> getRecommendation(List<MusicTrack> songsList){
+        if (songsList.isEmpty()) {
+            return null;
+        } else {
+            return searchRepository.getRecommendation(songsList);
+        }
+    }
 }

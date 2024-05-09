@@ -33,4 +33,9 @@ public class MongoRepository implements SearchRepository {
         return mongoTemplate.find(query, MusicTrack.class);
     }
 
+    @Override
+    public List<MusicTrack> getRecommendation(List<MusicTrack> songsList) {
+        return null;
+    }
+
 }
