@@ -1,8 +1,8 @@
-package songsearch.app.http;
+package io.spring.searchsp.app.http;
 
-import songsearch.core.search.MusicTrack;
-import songsearch.kafka.MessageProducer;
-import songsearch.core.search.SearchService;
+import io.spring.searchsp.core.search.MusicTrack;
+import io.spring.searchsp.kafka.MessageProducer;
+import io.spring.searchsp.core.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

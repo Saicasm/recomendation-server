@@ -1,4 +1,4 @@
-package songsearch.app.config;
+package io.spring.searchsp.app.config;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

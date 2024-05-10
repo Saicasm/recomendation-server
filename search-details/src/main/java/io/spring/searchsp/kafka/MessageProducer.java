@@ -1,4 +1,4 @@
-package songsearch.kafka;
+package io.spring.searchsp.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

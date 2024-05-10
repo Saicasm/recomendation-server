@@ -1,7 +1,7 @@
-package songsearch.mongo;
+package io.spring.searchsp.mongo;
 
-import songsearch.core.search.MusicTrack;
-import songsearch.core.search.SearchRepository;
+import io.spring.searchsp.core.search.MusicTrack;
+import io.spring.searchsp.core.search.SearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;

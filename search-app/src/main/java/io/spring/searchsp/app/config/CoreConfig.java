@@ -1,9 +1,9 @@
-package songsearch.app.config;
+package io.spring.searchsp.app.config;
 
 import org.springframework.kafka.core.KafkaTemplate;
-import songsearch.core.search.SearchService;
-import songsearch.kafka.MessageProducer;
-import songsearch.mongo.MongoRepository;
+import io.spring.searchsp.core.search.SearchService;
+import io.spring.searchsp.kafka.MessageProducer;
+import io.spring.searchsp.mongo.MongoRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 

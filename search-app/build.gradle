@@ -2,36 +2,29 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.5'
     id 'io.spring.dependency-management' version '1.1.4'
-    id "org.springdoc.openapi-gradle-plugin" version "1.8.0"
+//    id "org.springdoc.openapi-gradle-plugin" version "1.8.0"
 
 }
-
 
 
 repositories {
     mavenCentral()
 }
-
 dependencies {
     implementation(project(":search-core"))
     implementation(project(":search-details"))
-    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
-    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.17.20'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '3.2.5'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.5'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.kafka:spring-kafka'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.boot:spring-boot-testcontainers'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
-    testImplementation 'org.testcontainers:elasticsearch'
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:kafka'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '0.11.0'
 
 }
-
 test {
     useJUnitPlatform()
 }

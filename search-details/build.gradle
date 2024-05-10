@@ -11,6 +11,7 @@ version = '0.0.1-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+bootJar { enabled = false }
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')

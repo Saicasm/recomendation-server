@@ -1,6 +1,12 @@
-package songsearch.app.http.api;
+package io.spring.searchsp.core.search;
 
-public class SongSearch {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Test")
+public class MusicTrack {
+
+    @Id
     private String _id;
 
     private String artist_name;

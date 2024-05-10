@@ -1,4 +1,4 @@
-package songsearch.core.search;
+package io.spring.searchsp.core.search;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
