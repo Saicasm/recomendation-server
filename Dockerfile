@@ -1,14 +1,31 @@
-# Use official OpenJDK 17 image as base
-FROM openjdk:17-jdk-slim
+# Stage 1: Build the application
+FROM gradle:jdk17-jammy AS builder
 
-# Set working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the packaged Spring Boot application JAR file into the container at /app
-COPY target/your-application.jar /app/your-application.jar
+# Copy Gradle files for dependency resolution
+COPY build.gradle .
+COPY settings.gradle .
+#COPY gradle.properties .
 
-# Expose the port that the Spring Boot application will run on
+# Copy the entire project
+COPY . .
+
+# Build the application
+RUN gradle clean build --no-daemon
+
+# Stage 2: Run the application
+FROM openjdk:17-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the JAR file from the builder stage to the runtime stage
+COPY --from=builder /app/search-app/build/libs/search-app.jar search-app.jar
+#COPY --from=builder . .
+# Expose the port the app runs on
 EXPOSE 8080
 
-# Command to run the Spring Boot application when the container starts
-CMD ["java", "-jar", "your-application.jar"]
+# Command to run the application
+CMD ["java", "-jar", "search-app.jar"]

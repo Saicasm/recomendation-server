@@ -5,17 +5,12 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MessageProducer {
+public class KafkaProducer {
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, Object> kafkaTemplate;
 
-    public MessageProducer(KafkaTemplate<String, String> kafkaTemplate) {
-        this.kafkaTemplate=kafkaTemplate;
-    }
-
-    public void sendMessage(String topic, String message) {
+    public void sendMessage(String topic, Object message) {
         kafkaTemplate.send(topic, message);
     }
-
 }

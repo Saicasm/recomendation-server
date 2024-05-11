@@ -29,7 +29,7 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  search-service:
+  search-app:
     build:
       context: .
       dockerfile: Dockerfile
