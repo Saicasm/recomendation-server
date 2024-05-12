@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "*")
 @RequestMapping("api/v1/rec")
 public class SongsSearchController {
     private final SearchService searchService;
@@ -21,7 +22,7 @@ public class SongsSearchController {
         this.producer=producer;
         this.consumer=consumer;
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+//    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/search")
     public ResponseEntity<List<MusicTrack>> getSongsForKeyword(@RequestParam("q") String query) {
         List<MusicTrack> songResults = searchService.search(query);
@@ -30,7 +31,7 @@ public class SongsSearchController {
 
 
 
-    @CrossOrigin(origins = "http://localhost:3000")
+//    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/recommendation")
     public ResponseEntity<List<MusicTrack>> getRecommendationForSongs(@RequestBody List<MusicTrack> recommendationRequest) throws Exception {
         producer.sendMessage("song-ids", recommendationRequest);
