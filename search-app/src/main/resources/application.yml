@@ -1,11 +1,7 @@
 spring:
 
-  flyway:
-    enabled: true
-  jooq:
-    sql-dialect: Postgres
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -14,6 +10,8 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: jts
+      host: ${MONGO_HOST}
+      port: ${MONGO_PORT}
+      database: spotify
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}
