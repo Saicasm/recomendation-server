@@ -11,13 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/rec")
-@CrossOrigin(origins = "http://ui.distributed-systems.com:30080/", allowedHeaders = "*", exposedHeaders = "*",methods = {
-        RequestMethod.DELETE,
-        RequestMethod.GET,
-        RequestMethod.OPTIONS,
-        RequestMethod.PATCH,
-        RequestMethod.PUT,
-})
+@CrossOrigin()
 public class SongsSearchController {
     private final SearchService searchService;
     private final KafkaProducer producer;

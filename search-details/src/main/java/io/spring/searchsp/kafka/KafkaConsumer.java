@@ -13,7 +13,7 @@ public class KafkaConsumer {
 
     private final BlockingQueue<List<MusicTrack>> responseQueue = new LinkedBlockingQueue<>();
 
-    @KafkaListener(topics = "song-ids", groupId = "client-group")
+    @KafkaListener(topics = "final-recommendation", groupId = "client-group")
     public void listen(@Payload List<MusicTrack> message ) {
         responseQueue.offer(message);
     }
