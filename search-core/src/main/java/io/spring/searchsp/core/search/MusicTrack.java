@@ -6,8 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "dataset")
 public class MusicTrack {
 
-    @Id
-    private String _id;
+
 
     private String artist_name;
 
@@ -23,13 +22,7 @@ public class MusicTrack {
 
 
     // Getters and Setters
-    public String get_id() {
-        return _id;
-    }
 
-    public void set_id(String _id) {
-        this._id = _id;
-    }
 
     public String getArtist_name() {
         return artist_name;
