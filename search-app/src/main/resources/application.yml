@@ -1,30 +1,17 @@
 spring:
 
-  flyway:
-    enabled: true
-  jooq:
-    sql-dialect: Postgres
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      group-id: my-group-id
-
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: jts
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/shoestore?loggerLevel=OFF
-#    username: postgres
-#    password: postgres
-
-#cloud:
-#  aws:
-#    region:
-#      main: us-east-2
-#    credentials:
-#      access-key: USERORGEXAMPLE
-#      secret-key: 2QvM4/Tdmf38SkcD/qalvXO4EXAMPLEKEY
-#    end-point:
-#      uri: "http://www.foo.com"
+      host: ${MONGO_HOST}
+      port: ${MONGO_PORT}
+      database: spotify
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}

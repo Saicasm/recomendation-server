@@ -1,8 +1,8 @@
 package io.spring.searchsp.app.http;
 
-import io.spring.searchsp.core.search.MusicTrack;
-import io.spring.searchsp.kafka.MessageProducer;
-import io.spring.searchsp.core.search.SearchService;
+import io.spring.searchsp.core.search.*;
+import io.spring.searchsp.kafka.KafkaConsumer;
+import io.spring.searchsp.kafka.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +12,14 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/rec")
 public class SongsSearchController {
-    private final MessageProducer messageProducer;
     private final SearchService searchService;
-
+    private final KafkaProducer producer;
+    private final KafkaConsumer consumer;
     @Autowired
-    public SongsSearchController(SearchService searchService, MessageProducer messageProducer) {
+    public SongsSearchController(SearchService searchService, KafkaProducer producer ,  KafkaConsumer consumer) {
         this.searchService = searchService;
-        this.messageProducer = messageProducer;
+        this.producer=producer;
+        this.consumer=consumer;
     }
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/search")
@@ -27,15 +28,14 @@ public class SongsSearchController {
         return ResponseEntity.ok(songResults);
     }
 
-//    @PostMapping("/playlist")
-//    public ResponseEntity<SongResults> getRecommendationForPlaylist() {
-//        SongResults songResults = null;
-//        return ResponseEntity.ok(songResults);
-//    }
+
+
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/recommendation")
-    public  ResponseEntity<List<MusicTrack>> getRecommendationForSongs(@RequestBody List<MusicTrack> recommendationRequest) {
-        messageProducer.sendMessage("RecommendationRequest", recommendationRequest.toString());
-        return ResponseEntity.ok(recommendationRequest);
+    public ResponseEntity<List<MusicTrack>> getRecommendationForSongs(@RequestBody List<MusicTrack> recommendationRequest) throws Exception {
+        producer.sendMessage("song-ids", recommendationRequest);
+        List<MusicTrack> response = consumer.getResponse();
+        return ResponseEntity.ok((response));
     }
+
 }

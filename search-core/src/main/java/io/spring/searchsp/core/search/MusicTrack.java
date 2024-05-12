@@ -3,7 +3,7 @@ package io.spring.searchsp.core.search;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Test")
+@Document(collection = "dataset")
 public class MusicTrack {
 
     @Id

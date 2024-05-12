@@ -1,8 +1,8 @@
 package io.spring.searchsp.app.config;
 
-import org.springframework.kafka.core.KafkaTemplate;
+//import org.springframework.kafka.core.KafkaTemplate;
 import io.spring.searchsp.core.search.SearchService;
-import io.spring.searchsp.kafka.MessageProducer;
+//import io.spring.searchsp.kafka.MessageProducer;
 import io.spring.searchsp.mongo.MongoRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -18,8 +18,8 @@ public class CoreConfig {
         return new MongoRepository(mongoTemplate);
     }
 
-    @Bean
-    public MessageProducer kafkaMessageProducer(KafkaTemplate<String, String> kafkaTemplate) {
-        return new MessageProducer(kafkaTemplate);
-    }
+//    @Bean
+//    public MessageProducer kafkaMessageProducer(KafkaTemplate<String, String> kafkaTemplate) {
+//        return new MessageProducer(kafkaTemplate);
+//    }
 }
