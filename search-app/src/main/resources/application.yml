@@ -13,5 +13,6 @@ spring:
       host: ${MONGO_HOST}
       port: ${MONGO_PORT}
       database: spotify
-      username: adminuser
-      password: password123
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}
+      authentication-database: admin
